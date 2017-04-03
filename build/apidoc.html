@@ -1,0 +1,1040 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/indutny/node-ip"
+
+    >ip (v1.1.5)</a>
+</h1>
+<h4>[![](https://badge.fury.io/js/ip.svg)](https://www.npmjs.com/package/ip)</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ip">module ip</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ip.address">
+            function <span class="apidocSignatureSpan">ip.</span>address
+            <span class="apidocSignatureSpan">(name, family)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ip.cidr">
+            function <span class="apidocSignatureSpan">ip.</span>cidr
+            <span class="apidocSignatureSpan">(cidrString)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ip.cidrSubnet">
+            function <span class="apidocSignatureSpan">ip.</span>cidrSubnet
+            <span class="apidocSignatureSpan">(cidrString)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ip.fromLong">
+            function <span class="apidocSignatureSpan">ip.</span>fromLong
+            <span class="apidocSignatureSpan">(ipl)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ip.fromPrefixLen">
+            function <span class="apidocSignatureSpan">ip.</span>fromPrefixLen
+            <span class="apidocSignatureSpan">(prefixlen, family)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ip.isEqual">
+            function <span class="apidocSignatureSpan">ip.</span>isEqual
+            <span class="apidocSignatureSpan">(a, b)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ip.isLoopback">
+            function <span class="apidocSignatureSpan">ip.</span>isLoopback
+            <span class="apidocSignatureSpan">(addr)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ip.isPrivate">
+            function <span class="apidocSignatureSpan">ip.</span>isPrivate
+            <span class="apidocSignatureSpan">(addr)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ip.isPublic">
+            function <span class="apidocSignatureSpan">ip.</span>isPublic
+            <span class="apidocSignatureSpan">(addr)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ip.isV4Format">
+            function <span class="apidocSignatureSpan">ip.</span>isV4Format
+            <span class="apidocSignatureSpan">(ip)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ip.isV6Format">
+            function <span class="apidocSignatureSpan">ip.</span>isV6Format
+            <span class="apidocSignatureSpan">(ip)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ip.loopback">
+            function <span class="apidocSignatureSpan">ip.</span>loopback
+            <span class="apidocSignatureSpan">(family)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ip.mask">
+            function <span class="apidocSignatureSpan">ip.</span>mask
+            <span class="apidocSignatureSpan">(addr, mask)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ip.not">
+            function <span class="apidocSignatureSpan">ip.</span>not
+            <span class="apidocSignatureSpan">(addr)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ip.or">
+            function <span class="apidocSignatureSpan">ip.</span>or
+            <span class="apidocSignatureSpan">(a, b)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ip.subnet">
+            function <span class="apidocSignatureSpan">ip.</span>subnet
+            <span class="apidocSignatureSpan">(addr, mask)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ip.toBuffer">
+            function <span class="apidocSignatureSpan">ip.</span>toBuffer
+            <span class="apidocSignatureSpan">(ip, buff, offset)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ip.toLong">
+            function <span class="apidocSignatureSpan">ip.</span>toLong
+            <span class="apidocSignatureSpan">(ip)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ip" id="apidoc.module.ip">module ip</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ip.address" id="apidoc.element.ip.address">
+        function <span class="apidocSignatureSpan">ip.</span>address
+        <span class="apidocSignatureSpan">(name, family)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">address = function (name, family) {
+  var interfaces = os.networkInterfaces();
+  var all;
+
+  //
+  // Default to `ipv4`
+  //
+  family = _normalizeFamily(family);
+
+  //
+  // If a specific network interface has been named,
+  // return the address.
+  //
+  if (name &#x26;&#x26; name !== &#x27;private&#x27; &#x26;&#x26; name !== &#x27;public&#x27;) {
+    var res = interfaces[name].filter(function(details) {
+      var itemFamily = details.family.toLowerCase();
+      return itemFamily === family;
+    });
+    if (res.length === 0)
+      return undefined;
+    return res[0].address;
+  }
+
+  var all = Object.keys(interfaces).map(function (nic) {
+    //
+    // Note: name will only be `public` or `private`
+    // when this is called.
+    //
+    var addresses = interfaces[nic].filter(function (details) {
+      details.family = details.family.toLowerCase();
+      if (details.family !== family || ip.isLoopback(details.address)) {
+        return false;
+      } else if (!name) {
+        return true;
+      }
+
+      return name === &#x27;public&#x27; ? ip.isPrivate(details.address) :
+          ip.isPublic(details.address);
+    });
+
+    return addresses.length ? addresses[0].address : undefined;
+  }).filter(Boolean);
+
+  return !all.length ? ip.loopback(family) : all[0];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## Usage
+Get your ip address, compare ip addresses, validate ip addresses, etc.
+
+```js
+var ip = require(&#x27;ip&#x27;);
+
+ip.<span class="apidocCodeKeywordSpan">address</span>() // my ip address
+ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
+ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
+ip.fromPrefixLen(24) // 255.255.255.0
+ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
+ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
+ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ip.cidr" id="apidoc.element.ip.cidr">
+        function <span class="apidocSignatureSpan">ip.</span>cidr
+        <span class="apidocSignatureSpan">(cidrString)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cidr = function (cidrString) {
+  var cidrParts = cidrString.split(&#x27;/&#x27;);
+
+  var addr = cidrParts[0];
+  if (cidrParts.length !== 2)
+    throw new Error(&#x27;invalid CIDR subnet: &#x27; + addr);
+
+  var mask = ip.fromPrefixLen(parseInt(cidrParts[1], 10));
+
+  return ip.mask(addr, mask);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+ip.address() // my ip address
+ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
+ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
+ip.fromPrefixLen(24) // 255.255.255.0
+ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
+ip.<span class="apidocCodeKeywordSpan">cidr</span>(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
+ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
+ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
+ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
+ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
+ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+
+// operate on buffers in-place
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ip.cidrSubnet" id="apidoc.element.ip.cidrSubnet">
+        function <span class="apidocSignatureSpan">ip.</span>cidrSubnet
+        <span class="apidocSignatureSpan">(cidrString)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cidrSubnet = function (cidrString) {
+  var cidrParts = cidrString.split(&#x27;/&#x27;);
+
+  var addr = cidrParts[0];
+  if (cidrParts.length !== 2)
+    throw new Error(&#x27;invalid CIDR subnet: &#x27; + addr);
+
+  var mask = ip.fromPrefixLen(parseInt(cidrParts[1], 10));
+
+  return ip.subnet(addr, mask);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+//   lastAddress: &#x27;192.168.1.190&#x27;,
+//   broadcastAddress: &#x27;192.168.1.191&#x27;,
+//   subnetMask: &#x27;255.255.255.192&#x27;,
+//   subnetMaskLength: 26,
+//   numHosts: 62,
+//   length: 64,
+//   contains: function(addr){...} }
+ip.<span class="apidocCodeKeywordSpan">cidrSubnet</span>(&#x27;192.168.1.134/26&#x27;)
+// Same as previous.
+
+// range checking
+ip.cidrSubnet(&#x27;192.168.1.134/26&#x27;).contains(&#x27;192.168.1.190&#x27;) // true
+
+
+// ipv4 long conversion
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ip.fromLong" id="apidoc.element.ip.fromLong">
+        function <span class="apidocSignatureSpan">ip.</span>fromLong
+        <span class="apidocSignatureSpan">(ipl)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fromLong = function (ipl) {
+  return ((ipl &#x3e;&#x3e;&#x3e; 24) + &#x27;.&#x27; +
+      (ipl &#x3e;&#x3e; 16 &#x26; 255) + &#x27;.&#x27; +
+      (ipl &#x3e;&#x3e; 8 &#x26; 255) + &#x27;.&#x27; +
+      (ipl &#x26; 255) );
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// range checking
+ip.cidrSubnet(&#x27;192.168.1.134/26&#x27;).contains(&#x27;192.168.1.190&#x27;) // true
+
+
+// ipv4 long conversion
+ip.toLong(&#x27;127.0.0.1&#x27;); // 2130706433
+ip.<span class="apidocCodeKeywordSpan">fromLong</span>(2130706433); // &#x27;127.0.0.1&#x27;
+```
+
+### License
+
+This software is licensed under the MIT License.
+
+Copyright Fedor Indutny, 2012.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ip.fromPrefixLen" id="apidoc.element.ip.fromPrefixLen">
+        function <span class="apidocSignatureSpan">ip.</span>fromPrefixLen
+        <span class="apidocSignatureSpan">(prefixlen, family)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fromPrefixLen = function (prefixlen, family) {
+  if (prefixlen &#x3e; 32) {
+    family = &#x27;ipv6&#x27;;
+  } else {
+    family = _normalizeFamily(family);
+  }
+
+  var len = 4;
+  if (family === &#x27;ipv6&#x27;) {
+    len = 16;
+  }
+  var buff = new Buffer(len);
+
+  for (var i = 0, n = buff.length; i &#x3c; n; ++i) {
+    var bits = 8;
+    if (prefixlen &#x3c; 8) {
+      bits = prefixlen;
+    }
+    prefixlen -= bits;
+
+    buff[i] = ~(0xff &#x3e;&#x3e; bits) &#x26; 0xff;
+  }
+
+  return ip.toString(buff);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+var ip = require(&#x27;ip&#x27;);
+
+ip.address() // my ip address
+ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
+ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
+ip.<span class="apidocCodeKeywordSpan">fromPrefixLen</span>(24) // 255.255.255.0
+ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
+ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
+ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
+ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
+ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
+ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
+ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ip.isEqual" id="apidoc.element.ip.isEqual">
+        function <span class="apidocSignatureSpan">ip.</span>isEqual
+        <span class="apidocSignatureSpan">(a, b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isEqual = function (a, b) {
+  a = ip.toBuffer(a);
+  b = ip.toBuffer(b);
+
+  // Same protocol
+  if (a.length === b.length) {
+    for (var i = 0; i &#x3c; a.length; i++) {
+      if (a[i] !== b[i]) return false;
+    }
+    return true;
+  }
+
+  // Swap
+  if (b.length === 4) {
+    var t = b;
+    b = a;
+    a = t;
+  }
+
+  // a - IPv4, b - IPv6
+  for (var i = 0; i &#x3c; 10; i++) {
+    if (b[i] !== 0) return false;
+  }
+
+  var word = b.readUInt16BE(10);
+  if (word !== 0 &#x26;&#x26; word !== 0xffff) return false;
+
+  for (var i = 0; i &#x3c; 4; i++) {
+    if (a[i] !== b[i + 12]) return false;
+  }
+
+  return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+## Usage
+Get your ip address, compare ip addresses, validate ip addresses, etc.
+
+```js
+var ip = require(&#x27;ip&#x27;);
+
+ip.address() // my ip address
+ip.<span class="apidocCodeKeywordSpan">isEqual</span>(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
+ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
+ip.fromPrefixLen(24) // 255.255.255.0
+ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
+ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
+ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
+ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ip.isLoopback" id="apidoc.element.ip.isLoopback">
+        function <span class="apidocSignatureSpan">ip.</span>isLoopback
+        <span class="apidocSignatureSpan">(addr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isLoopback = function (addr) {
+  return /^(::f{4}:)?127\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})/
+      .test(addr) ||
+    /^fe80::1$/.test(addr) ||
+    /^::1$/.test(addr) ||
+    /^::$/.test(addr);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ip.isPrivate" id="apidoc.element.ip.isPrivate">
+        function <span class="apidocSignatureSpan">ip.</span>isPrivate
+        <span class="apidocSignatureSpan">(addr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isPrivate = function (addr) {
+  return /^(::f{4}:)?10\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$/i
+      .test(addr) ||
+    /^(::f{4}:)?192\.168\.([0-9]{1,3})\.([0-9]{1,3})$/i.test(addr) ||
+    /^(::f{4}:)?172\.(1[6-9]|2\d|30|31)\.([0-9]{1,3})\.([0-9]{1,3})$/i
+      .test(addr) ||
+    /^(::f{4}:)?127\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$/i.test(addr) ||
+    /^(::f{4}:)?169\.254\.([0-9]{1,3})\.([0-9]{1,3})$/i.test(addr) ||
+    /^f[cd][0-9a-f]{2}:/i.test(addr) ||
+    /^fe80:/i.test(addr) ||
+    /^::1$/.test(addr) ||
+    /^::$/.test(addr);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
+ip.fromPrefixLen(24) // 255.255.255.0
+ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
+ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
+ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
+ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
+ip.<span class="apidocCodeKeywordSpan">isPrivate</span>(&#x27;127.0.0.1&#x27;) // true
+ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
+ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+
+// operate on buffers in-place
+var buf = new Buffer(128);
+var offset = 64;
+ip.toBuffer(&#x27;127.0.0.1&#x27;, buf, offset);  // [127, 0, 0, 1] at offset 64
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ip.isPublic" id="apidoc.element.ip.isPublic">
+        function <span class="apidocSignatureSpan">ip.</span>isPublic
+        <span class="apidocSignatureSpan">(addr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isPublic = function (addr) {
+  return !ip.isPrivate(addr);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ip.isV4Format" id="apidoc.element.ip.isV4Format">
+        function <span class="apidocSignatureSpan">ip.</span>isV4Format
+        <span class="apidocSignatureSpan">(ip)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isV4Format = function (ip) {
+  return ipv4Regex.test(ip);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
+ip.fromPrefixLen(24) // 255.255.255.0
+ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
+ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
+ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
+ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
+ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
+ip.<span class="apidocCodeKeywordSpan">isV4Format</span>(&#x27;127.0.0.1&#x27;); // true
+ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+
+// operate on buffers in-place
+var buf = new Buffer(128);
+var offset = 64;
+ip.toBuffer(&#x27;127.0.0.1&#x27;, buf, offset);  // [127, 0, 0, 1] at offset 64
+ip.toString(buf, offset, 4);            // &#x27;127.0.0.1&#x27;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ip.isV6Format" id="apidoc.element.ip.isV6Format">
+        function <span class="apidocSignatureSpan">ip.</span>isV6Format
+        <span class="apidocSignatureSpan">(ip)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isV6Format = function (ip) {
+  return ipv6Regex.test(ip);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ip.fromPrefixLen(24) // 255.255.255.0
+ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
+ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
+ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
+ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
+ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
+ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
+ip.<span class="apidocCodeKeywordSpan">isV6Format</span>(&#x27;::ffff:127.0.0.1&#x27;); // true
+
+// operate on buffers in-place
+var buf = new Buffer(128);
+var offset = 64;
+ip.toBuffer(&#x27;127.0.0.1&#x27;, buf, offset);  // [127, 0, 0, 1] at offset 64
+ip.toString(buf, offset, 4);            // &#x27;127.0.0.1&#x27;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ip.loopback" id="apidoc.element.ip.loopback">
+        function <span class="apidocSignatureSpan">ip.</span>loopback
+        <span class="apidocSignatureSpan">(family)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loopback = function (family) {
+  //
+  // Default to `ipv4`
+  //
+  family = _normalizeFamily(family);
+
+  if (family !== &#x27;ipv4&#x27; &#x26;&#x26; family !== &#x27;ipv6&#x27;) {
+    throw new Error(&#x27;family must be ipv4 or ipv6&#x27;);
+  }
+
+  return family === &#x27;ipv4&#x27; ? &#x27;127.0.0.1&#x27; : &#x27;fe80::1&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ip.mask" id="apidoc.element.ip.mask">
+        function <span class="apidocSignatureSpan">ip.</span>mask
+        <span class="apidocSignatureSpan">(addr, mask)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mask = function (addr, mask) {
+  addr = ip.toBuffer(addr);
+  mask = ip.toBuffer(mask);
+
+  var result = new Buffer(Math.max(addr.length, mask.length));
+
+  var i = 0;
+  // Same protocol - do bitwise and
+  if (addr.length === mask.length) {
+    for (i = 0; i &#x3c; addr.length; i++) {
+      result[i] = addr[i] &#x26; mask[i];
+    }
+  } else if (mask.length === 4) {
+    // IPv6 address and IPv4 mask
+    // (Mask low bits)
+    for (i = 0; i &#x3c; mask.length; i++) {
+      result[i] = addr[addr.length - 4  + i] &#x26; mask[i];
+    }
+  } else {
+    // IPv6 mask and IPv4 addr
+    for (var i = 0; i &#x3c; result.length - 6; i++) {
+      result[i] = 0;
+    }
+
+    // ::ffff:ipv4
+    result[10] = 0xff;
+    result[11] = 0xff;
+    for (i = 0; i &#x3c; addr.length; i++) {
+      result[i + 12] = addr[i] &#x26; mask[i + 12];
+    }
+    i = i + 12;
+  }
+  for (; i &#x3c; result.length; i++)
+    result[i] = 0;
+
+  return ip.toString(result);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var ip = require(&#x27;ip&#x27;);
+
+ip.address() // my ip address
+ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
+ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
+ip.fromPrefixLen(24) // 255.255.255.0
+ip.<span class="apidocCodeKeywordSpan">mask</span>(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
+ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
+ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
+ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
+ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
+ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
+ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ip.not" id="apidoc.element.ip.not">
+        function <span class="apidocSignatureSpan">ip.</span>not
+        <span class="apidocSignatureSpan">(addr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">not = function (addr) {
+  var buff = ip.toBuffer(addr);
+  for (var i = 0; i &#x3c; buff.length; i++) {
+    buff[i] = 0xff ^ buff[i];
+  }
+  return ip.toString(buff);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ip.address() // my ip address
+ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
+ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
+ip.fromPrefixLen(24) // 255.255.255.0
+ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
+ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
+ip.<span class="apidocCodeKeywordSpan">not</span>(&#x27;255.255.255.0&#x27;) // 0.0.0.255
+ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
+ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
+ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
+ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+
+// operate on buffers in-place
+var buf = new Buffer(128);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ip.or" id="apidoc.element.ip.or">
+        function <span class="apidocSignatureSpan">ip.</span>or
+        <span class="apidocSignatureSpan">(a, b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">or = function (a, b) {
+  a = ip.toBuffer(a);
+  b = ip.toBuffer(b);
+
+  // same protocol
+  if (a.length === b.length) {
+    for (var i = 0; i &#x3c; a.length; ++i) {
+      a[i] |= b[i];
+    }
+    return ip.toString(a);
+
+  // mixed protocols
+  } else {
+    var buff = a;
+    var other = b;
+    if (b.length &#x3e; a.length) {
+      buff = b;
+      other = a;
+    }
+
+    var offset = buff.length - other.length;
+    for (var i = offset; i &#x3c; buff.length; ++i) {
+      buff[i] |= other[i - offset];
+    }
+
+    return ip.toString(buff);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
+ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
+ip.fromPrefixLen(24) // 255.255.255.0
+ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
+ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
+ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
+ip.<span class="apidocCodeKeywordSpan">or</span>(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
+ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
+ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
+ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+
+// operate on buffers in-place
+var buf = new Buffer(128);
+var offset = 64;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ip.subnet" id="apidoc.element.ip.subnet">
+        function <span class="apidocSignatureSpan">ip.</span>subnet
+        <span class="apidocSignatureSpan">(addr, mask)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">subnet = function (addr, mask) {
+  var networkAddress = ip.toLong(ip.mask(addr, mask));
+
+  // Calculate the mask&#x27;s length.
+  var maskBuffer = ip.toBuffer(mask);
+  var maskLength = 0;
+
+  for (var i = 0; i &#x3c; maskBuffer.length; i++) {
+    if (maskBuffer[i] === 0xff) {
+      maskLength += 8;
+    } else {
+      var octet = maskBuffer[i] &#x26; 0xff;
+      while (octet) {
+        octet = (octet &#x3c;&#x3c; 1) &#x26; 0xff;
+        maskLength++;
+      }
+    }
+  }
+
+  var numberOfAddresses = Math.pow(2, 32 - maskLength);
+
+  return {
+    networkAddress: ip.fromLong(networkAddress),
+    firstAddress: numberOfAddresses &#x3c;= 2 ?
+                    ip.fromLong(networkAddress) :
+                    ip.fromLong(networkAddress + 1),
+    lastAddress: numberOfAddresses &#x3c;= 2 ?
+                    ip.fromLong(networkAddress + numberOfAddresses - 1) :
+                    ip.fromLong(networkAddress + numberOfAddresses - 2),
+    broadcastAddress: ip.fromLong(networkAddress + numberOfAddresses - 1),
+    subnetMask: mask,
+    subnetMaskLength: maskLength,
+    numHosts: numberOfAddresses &#x3c;= 2 ?
+                numberOfAddresses : numberOfAddresses - 2,
+    length: numberOfAddresses,
+    contains: function(other) {
+      return networkAddress === ip.toLong(ip.mask(other, mask));
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// operate on buffers in-place
+var buf = new Buffer(128);
+var offset = 64;
+ip.toBuffer(&#x27;127.0.0.1&#x27;, buf, offset);  // [127, 0, 0, 1] at offset 64
+ip.toString(buf, offset, 4);            // &#x27;127.0.0.1&#x27;
+
+// subnet information
+ip.<span class="apidocCodeKeywordSpan">subnet</span>(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.192&#x27;)
+// { networkAddress: &#x27;192.168.1.128&#x27;,
+//   firstAddress: &#x27;192.168.1.129&#x27;,
+//   lastAddress: &#x27;192.168.1.190&#x27;,
+//   broadcastAddress: &#x27;192.168.1.191&#x27;,
+//   subnetMask: &#x27;255.255.255.192&#x27;,
+//   subnetMaskLength: 26,
+//   numHosts: 62,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ip.toBuffer" id="apidoc.element.ip.toBuffer">
+        function <span class="apidocSignatureSpan">ip.</span>toBuffer
+        <span class="apidocSignatureSpan">(ip, buff, offset)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toBuffer = function (ip, buff, offset) {
+  offset = ~~offset;
+
+  var result;
+
+  if (this.isV4Format(ip)) {
+    result = buff || new Buffer(offset + 4);
+    ip.split(/\./g).map(function(byte) {
+      result[offset++] = parseInt(byte, 10) &#x26; 0xff;
+    });
+  } else if (this.isV6Format(ip)) {
+    var sections = ip.split(&#x27;:&#x27;, 8);
+
+    var i;
+    for (i = 0; i &#x3c; sections.length; i++) {
+      var isv4 = this.isV4Format(sections[i]);
+      var v4Buffer;
+
+      if (isv4) {
+        v4Buffer = this.toBuffer(sections[i]);
+        sections[i] = v4Buffer.slice(0, 2).toString(&#x27;hex&#x27;);
+      }
+
+      if (v4Buffer &#x26;&#x26; ++i &#x3c; 8) {
+        sections.splice(i, 0, v4Buffer.slice(2, 4).toString(&#x27;hex&#x27;));
+      }
+    }
+
+    if (sections[0] === &#x27;&#x27;) {
+      while (sections.length &#x3c; 8) sections.unshift(&#x27;0&#x27;);
+    } else if (sections[sections.length - 1] === &#x27;&#x27;) {
+      while (sections.length &#x3c; 8) sections.push(&#x27;0&#x27;);
+    } else if (sections.length &#x3c; 8) {
+      for (i = 0; i &#x3c; sections.length &#x26;&#x26; sections[i] !== &#x27;&#x27;; i++);
+      var argv = [ i, 1 ];
+      for (i = 9 - sections.length; i &#x3e; 0; i--) {
+        argv.push(&#x27;0&#x27;);
+      }
+      sections.splice.apply(sections, argv);
+    }
+
+    result = buff || new Buffer(offset + 16);
+    for (i = 0; i &#x3c; sections.length; i++) {
+      var word = parseInt(sections[i], 16);
+      result[offset++] = (word &#x3e;&#x3e; 8) &#x26; 0xff;
+      result[offset++] = word &#x26; 0xff;
+    }
+  }
+
+  if (!result) {
+    throw Error(&#x27;Invalid ip address: &#x27; + ip);
+  }
+
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Get your ip address, compare ip addresses, validate ip addresses, etc.
+
+```js
+var ip = require(&#x27;ip&#x27;);
+
+ip.address() // my ip address
+ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
+ip.<span class="apidocCodeKeywordSpan">toBuffer</span>(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
+ip.fromPrefixLen(24) // 255.255.255.0
+ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
+ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
+ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
+ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
+ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ip.toLong" id="apidoc.element.ip.toLong">
+        function <span class="apidocSignatureSpan">ip.</span>toLong
+        <span class="apidocSignatureSpan">(ip)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toLong = function (ip) {
+  var ipl = 0;
+  ip.split(&#x27;.&#x27;).forEach(function(octet) {
+    ipl &#x3c;&#x3c;= 8;
+    ipl += parseInt(octet);
+  });
+  return(ipl &#x3e;&#x3e;&#x3e; 0);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// Same as previous.
+
+// range checking
+ip.cidrSubnet(&#x27;192.168.1.134/26&#x27;).contains(&#x27;192.168.1.190&#x27;) // true
+
+
+// ipv4 long conversion
+ip.<span class="apidocCodeKeywordSpan">toLong</span>(&#x27;127.0.0.1&#x27;); // 2130706433
+ip.fromLong(2130706433); // &#x27;127.0.0.1&#x27;
+```
+
+### License
+
+This software is licensed under the MIT License.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
