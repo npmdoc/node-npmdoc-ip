@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/indutny/node-ip"
-
-    >ip (v1.1.5)</a>
+    <a href="https://github.com/indutny/node-ip">ip (v1.1.5)</a>
 </h1>
 <h4>[![](https://badge.fury.io/js/ip.svg)](https://www.npmjs.com/package/ip)</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.ip">module ip</a><ol>
 
@@ -485,7 +478,7 @@
   // If a specific network interface has been named,
   // return the address.
   //
-  if (name &#x26;&#x26; name !== &#x27;private&#x27; &#x26;&#x26; name !== &#x27;public&#x27;) {
+  if (name &amp;&amp; name !== 'private' &amp;&amp; name !== 'public') {
     var res = interfaces[name].filter(function(details) {
       var itemFamily = details.family.toLowerCase();
       return itemFamily === family;
@@ -508,7 +501,7 @@
         return true;
       }
 
-      return name === &#x27;public&#x27; ? ip.isPrivate(details.address) :
+      return name === 'public' ? ip.isPrivate(details.address) :
           ip.isPublic(details.address);
     });
 
@@ -523,16 +516,16 @@
 Get your ip address, compare ip addresses, validate ip addresses, etc.
 
 ```js
-var ip = require(&#x27;ip&#x27;);
+var ip = require('ip');
 
 ip.<span class="apidocCodeKeywordSpan">address</span>() // my ip address
-ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
-ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.isEqual('::1', '::0:1'); // true
+ip.toBuffer('127.0.0.1') // Buffer([127, 0, 0, 1])
 ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
 ip.fromPrefixLen(24) // 255.255.255.0
-ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
+ip.mask('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.cidr('192.168.1.134/26') // 192.168.1.128
+ip.not('255.255.255.0') // 0.0.0.255
 ...</pre></li>
     </ul>
 
@@ -546,11 +539,11 @@ ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">cidr = function (cidrString) {
-  var cidrParts = cidrString.split(&#x27;/&#x27;);
+  var cidrParts = cidrString.split('/');
 
   var addr = cidrParts[0];
   if (cidrParts.length !== 2)
-    throw new Error(&#x27;invalid CIDR subnet: &#x27; + addr);
+    throw new Error('invalid CIDR subnet: ' + addr);
 
   var mask = ip.fromPrefixLen(parseInt(cidrParts[1], 10));
 
@@ -559,17 +552,17 @@ ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
     <li>example usage<pre class="apidocCodePre">...
 
 ip.address() // my ip address
-ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
-ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.isEqual('::1', '::0:1'); // true
+ip.toBuffer('127.0.0.1') // Buffer([127, 0, 0, 1])
 ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
 ip.fromPrefixLen(24) // 255.255.255.0
-ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.<span class="apidocCodeKeywordSpan">cidr</span>(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
-ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
-ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
-ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
-ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+ip.mask('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.<span class="apidocCodeKeywordSpan">cidr</span>('192.168.1.134/26') // 192.168.1.128
+ip.not('255.255.255.0') // 0.0.0.255
+ip.or('192.168.1.134', '0.0.0.255') // 192.168.1.255
+ip.isPrivate('127.0.0.1') // true
+ip.isV4Format('127.0.0.1'); // true
+ip.isV6Format('::ffff:127.0.0.1'); // true
 
 // operate on buffers in-place
 ...</pre></li>
@@ -585,29 +578,29 @@ ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">cidrSubnet = function (cidrString) {
-  var cidrParts = cidrString.split(&#x27;/&#x27;);
+  var cidrParts = cidrString.split('/');
 
   var addr = cidrParts[0];
   if (cidrParts.length !== 2)
-    throw new Error(&#x27;invalid CIDR subnet: &#x27; + addr);
+    throw new Error('invalid CIDR subnet: ' + addr);
 
   var mask = ip.fromPrefixLen(parseInt(cidrParts[1], 10));
 
   return ip.subnet(addr, mask);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-//   lastAddress: &#x27;192.168.1.190&#x27;,
-//   broadcastAddress: &#x27;192.168.1.191&#x27;,
-//   subnetMask: &#x27;255.255.255.192&#x27;,
+//   lastAddress: '192.168.1.190',
+//   broadcastAddress: '192.168.1.191',
+//   subnetMask: '255.255.255.192',
 //   subnetMaskLength: 26,
 //   numHosts: 62,
 //   length: 64,
 //   contains: function(addr){...} }
-ip.<span class="apidocCodeKeywordSpan">cidrSubnet</span>(&#x27;192.168.1.134/26&#x27;)
+ip.<span class="apidocCodeKeywordSpan">cidrSubnet</span>('192.168.1.134/26')
 // Same as previous.
 
 // range checking
-ip.cidrSubnet(&#x27;192.168.1.134/26&#x27;).contains(&#x27;192.168.1.190&#x27;) // true
+ip.cidrSubnet('192.168.1.134/26').contains('192.168.1.190') // true
 
 
 // ipv4 long conversion
@@ -624,20 +617,20 @@ ip.cidrSubnet(&#x27;192.168.1.134/26&#x27;).contains(&#x27;192.168.1.190&#x27;) 
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fromLong = function (ipl) {
-  return ((ipl &#x3e;&#x3e;&#x3e; 24) + &#x27;.&#x27; +
-      (ipl &#x3e;&#x3e; 16 &#x26; 255) + &#x27;.&#x27; +
-      (ipl &#x3e;&#x3e; 8 &#x26; 255) + &#x27;.&#x27; +
-      (ipl &#x26; 255) );
+  return ((ipl &gt;&gt;&gt; 24) + '.' +
+      (ipl &gt;&gt; 16 &amp; 255) + '.' +
+      (ipl &gt;&gt; 8 &amp; 255) + '.' +
+      (ipl &amp; 255) );
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
 // range checking
-ip.cidrSubnet(&#x27;192.168.1.134/26&#x27;).contains(&#x27;192.168.1.190&#x27;) // true
+ip.cidrSubnet('192.168.1.134/26').contains('192.168.1.190') // true
 
 
 // ipv4 long conversion
-ip.toLong(&#x27;127.0.0.1&#x27;); // 2130706433
-ip.<span class="apidocCodeKeywordSpan">fromLong</span>(2130706433); // &#x27;127.0.0.1&#x27;
+ip.toLong('127.0.0.1'); // 2130706433
+ip.<span class="apidocCodeKeywordSpan">fromLong</span>(2130706433); // '127.0.0.1'
 ```
 
 ### License
@@ -658,46 +651,46 @@ Copyright Fedor Indutny, 2012.
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fromPrefixLen = function (prefixlen, family) {
-  if (prefixlen &#x3e; 32) {
-    family = &#x27;ipv6&#x27;;
+  if (prefixlen &gt; 32) {
+    family = 'ipv6';
   } else {
     family = _normalizeFamily(family);
   }
 
   var len = 4;
-  if (family === &#x27;ipv6&#x27;) {
+  if (family === 'ipv6') {
     len = 16;
   }
   var buff = new Buffer(len);
 
-  for (var i = 0, n = buff.length; i &#x3c; n; ++i) {
+  for (var i = 0, n = buff.length; i &lt; n; ++i) {
     var bits = 8;
-    if (prefixlen &#x3c; 8) {
+    if (prefixlen &lt; 8) {
       bits = prefixlen;
     }
     prefixlen -= bits;
 
-    buff[i] = ~(0xff &#x3e;&#x3e; bits) &#x26; 0xff;
+    buff[i] = ~(0xff &gt;&gt; bits) &amp; 0xff;
   }
 
   return ip.toString(buff);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 ```js
-var ip = require(&#x27;ip&#x27;);
+var ip = require('ip');
 
 ip.address() // my ip address
-ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
-ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.isEqual('::1', '::0:1'); // true
+ip.toBuffer('127.0.0.1') // Buffer([127, 0, 0, 1])
 ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
 ip.<span class="apidocCodeKeywordSpan">fromPrefixLen</span>(24) // 255.255.255.0
-ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
-ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
-ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
-ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
-ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+ip.mask('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.cidr('192.168.1.134/26') // 192.168.1.128
+ip.not('255.255.255.0') // 0.0.0.255
+ip.or('192.168.1.134', '0.0.0.255') // 192.168.1.255
+ip.isPrivate('127.0.0.1') // true
+ip.isV4Format('127.0.0.1'); // true
+ip.isV6Format('::ffff:127.0.0.1'); // true
 ...</pre></li>
     </ul>
 
@@ -716,7 +709,7 @@ ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
 
   // Same protocol
   if (a.length === b.length) {
-    for (var i = 0; i &#x3c; a.length; i++) {
+    for (var i = 0; i &lt; a.length; i++) {
       if (a[i] !== b[i]) return false;
     }
     return true;
@@ -730,14 +723,14 @@ ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
   }
 
   // a - IPv4, b - IPv6
-  for (var i = 0; i &#x3c; 10; i++) {
+  for (var i = 0; i &lt; 10; i++) {
     if (b[i] !== 0) return false;
   }
 
   var word = b.readUInt16BE(10);
-  if (word !== 0 &#x26;&#x26; word !== 0xffff) return false;
+  if (word !== 0 &amp;&amp; word !== 0xffff) return false;
 
-  for (var i = 0; i &#x3c; 4; i++) {
+  for (var i = 0; i &lt; 4; i++) {
     if (a[i] !== b[i + 12]) return false;
   }
 
@@ -748,17 +741,17 @@ ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
 Get your ip address, compare ip addresses, validate ip addresses, etc.
 
 ```js
-var ip = require(&#x27;ip&#x27;);
+var ip = require('ip');
 
 ip.address() // my ip address
-ip.<span class="apidocCodeKeywordSpan">isEqual</span>(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
-ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.<span class="apidocCodeKeywordSpan">isEqual</span>('::1', '::0:1'); // true
+ip.toBuffer('127.0.0.1') // Buffer([127, 0, 0, 1])
 ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
 ip.fromPrefixLen(24) // 255.255.255.0
-ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
-ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
+ip.mask('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.cidr('192.168.1.134/26') // 192.168.1.128
+ip.not('255.255.255.0') // 0.0.0.255
+ip.or('192.168.1.134', '0.0.0.255') // 192.168.1.255
 ...</pre></li>
     </ul>
 
@@ -804,21 +797,21 @@ ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
     /^::$/.test(addr);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.toBuffer('127.0.0.1') // Buffer([127, 0, 0, 1])
 ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
 ip.fromPrefixLen(24) // 255.255.255.0
-ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
-ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
-ip.<span class="apidocCodeKeywordSpan">isPrivate</span>(&#x27;127.0.0.1&#x27;) // true
-ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
-ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+ip.mask('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.cidr('192.168.1.134/26') // 192.168.1.128
+ip.not('255.255.255.0') // 0.0.0.255
+ip.or('192.168.1.134', '0.0.0.255') // 192.168.1.255
+ip.<span class="apidocCodeKeywordSpan">isPrivate</span>('127.0.0.1') // true
+ip.isV4Format('127.0.0.1'); // true
+ip.isV6Format('::ffff:127.0.0.1'); // true
 
 // operate on buffers in-place
 var buf = new Buffer(128);
 var offset = 64;
-ip.toBuffer(&#x27;127.0.0.1&#x27;, buf, offset);  // [127, 0, 0, 1] at offset 64
+ip.toBuffer('127.0.0.1', buf, offset);  // [127, 0, 0, 1] at offset 64
 ...</pre></li>
     </ul>
 
@@ -852,19 +845,19 @@ ip.toBuffer(&#x27;127.0.0.1&#x27;, buf, offset);  // [127, 0, 0, 1] at offset 64
     <li>example usage<pre class="apidocCodePre">...
 ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
 ip.fromPrefixLen(24) // 255.255.255.0
-ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
-ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
-ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
-ip.<span class="apidocCodeKeywordSpan">isV4Format</span>(&#x27;127.0.0.1&#x27;); // true
-ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+ip.mask('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.cidr('192.168.1.134/26') // 192.168.1.128
+ip.not('255.255.255.0') // 0.0.0.255
+ip.or('192.168.1.134', '0.0.0.255') // 192.168.1.255
+ip.isPrivate('127.0.0.1') // true
+ip.<span class="apidocCodeKeywordSpan">isV4Format</span>('127.0.0.1'); // true
+ip.isV6Format('::ffff:127.0.0.1'); // true
 
 // operate on buffers in-place
 var buf = new Buffer(128);
 var offset = 64;
-ip.toBuffer(&#x27;127.0.0.1&#x27;, buf, offset);  // [127, 0, 0, 1] at offset 64
-ip.toString(buf, offset, 4);            // &#x27;127.0.0.1&#x27;
+ip.toBuffer('127.0.0.1', buf, offset);  // [127, 0, 0, 1] at offset 64
+ip.toString(buf, offset, 4);            // '127.0.0.1'
 ...</pre></li>
     </ul>
 
@@ -882,19 +875,19 @@ ip.toString(buf, offset, 4);            // &#x27;127.0.0.1&#x27;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 ip.fromPrefixLen(24) // 255.255.255.0
-ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
-ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
-ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
-ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
-ip.<span class="apidocCodeKeywordSpan">isV6Format</span>(&#x27;::ffff:127.0.0.1&#x27;); // true
+ip.mask('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.cidr('192.168.1.134/26') // 192.168.1.128
+ip.not('255.255.255.0') // 0.0.0.255
+ip.or('192.168.1.134', '0.0.0.255') // 192.168.1.255
+ip.isPrivate('127.0.0.1') // true
+ip.isV4Format('127.0.0.1'); // true
+ip.<span class="apidocCodeKeywordSpan">isV6Format</span>('::ffff:127.0.0.1'); // true
 
 // operate on buffers in-place
 var buf = new Buffer(128);
 var offset = 64;
-ip.toBuffer(&#x27;127.0.0.1&#x27;, buf, offset);  // [127, 0, 0, 1] at offset 64
-ip.toString(buf, offset, 4);            // &#x27;127.0.0.1&#x27;
+ip.toBuffer('127.0.0.1', buf, offset);  // [127, 0, 0, 1] at offset 64
+ip.toString(buf, offset, 4);            // '127.0.0.1'
 ...</pre></li>
     </ul>
 
@@ -913,11 +906,11 @@ ip.toString(buf, offset, 4);            // &#x27;127.0.0.1&#x27;
   //
   family = _normalizeFamily(family);
 
-  if (family !== &#x27;ipv4&#x27; &#x26;&#x26; family !== &#x27;ipv6&#x27;) {
-    throw new Error(&#x27;family must be ipv4 or ipv6&#x27;);
+  if (family !== 'ipv4' &amp;&amp; family !== 'ipv6') {
+    throw new Error('family must be ipv4 or ipv6');
   }
 
-  return family === &#x27;ipv4&#x27; ? &#x27;127.0.0.1&#x27; : &#x27;fe80::1&#x27;;
+  return family === 'ipv4' ? '127.0.0.1' : 'fe80::1';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -940,49 +933,49 @@ ip.toString(buf, offset, 4);            // &#x27;127.0.0.1&#x27;
   var i = 0;
   // Same protocol - do bitwise and
   if (addr.length === mask.length) {
-    for (i = 0; i &#x3c; addr.length; i++) {
-      result[i] = addr[i] &#x26; mask[i];
+    for (i = 0; i &lt; addr.length; i++) {
+      result[i] = addr[i] &amp; mask[i];
     }
   } else if (mask.length === 4) {
     // IPv6 address and IPv4 mask
     // (Mask low bits)
-    for (i = 0; i &#x3c; mask.length; i++) {
-      result[i] = addr[addr.length - 4  + i] &#x26; mask[i];
+    for (i = 0; i &lt; mask.length; i++) {
+      result[i] = addr[addr.length - 4  + i] &amp; mask[i];
     }
   } else {
     // IPv6 mask and IPv4 addr
-    for (var i = 0; i &#x3c; result.length - 6; i++) {
+    for (var i = 0; i &lt; result.length - 6; i++) {
       result[i] = 0;
     }
 
     // ::ffff:ipv4
     result[10] = 0xff;
     result[11] = 0xff;
-    for (i = 0; i &#x3c; addr.length; i++) {
-      result[i + 12] = addr[i] &#x26; mask[i + 12];
+    for (i = 0; i &lt; addr.length; i++) {
+      result[i + 12] = addr[i] &amp; mask[i + 12];
     }
     i = i + 12;
   }
-  for (; i &#x3c; result.length; i++)
+  for (; i &lt; result.length; i++)
     result[i] = 0;
 
   return ip.toString(result);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var ip = require(&#x27;ip&#x27;);
+var ip = require('ip');
 
 ip.address() // my ip address
-ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
-ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.isEqual('::1', '::0:1'); // true
+ip.toBuffer('127.0.0.1') // Buffer([127, 0, 0, 1])
 ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
 ip.fromPrefixLen(24) // 255.255.255.0
-ip.<span class="apidocCodeKeywordSpan">mask</span>(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
-ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
-ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
-ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
-ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+ip.<span class="apidocCodeKeywordSpan">mask</span>('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.cidr('192.168.1.134/26') // 192.168.1.128
+ip.not('255.255.255.0') // 0.0.0.255
+ip.or('192.168.1.134', '0.0.0.255') // 192.168.1.255
+ip.isPrivate('127.0.0.1') // true
+ip.isV4Format('127.0.0.1'); // true
+ip.isV6Format('::ffff:127.0.0.1'); // true
 ...</pre></li>
     </ul>
 
@@ -997,24 +990,24 @@ ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
     <ul>
     <li>description and source-code<pre class="apidocCodePre">not = function (addr) {
   var buff = ip.toBuffer(addr);
-  for (var i = 0; i &#x3c; buff.length; i++) {
+  for (var i = 0; i &lt; buff.length; i++) {
     buff[i] = 0xff ^ buff[i];
   }
   return ip.toString(buff);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 ip.address() // my ip address
-ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
-ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.isEqual('::1', '::0:1'); // true
+ip.toBuffer('127.0.0.1') // Buffer([127, 0, 0, 1])
 ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
 ip.fromPrefixLen(24) // 255.255.255.0
-ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.<span class="apidocCodeKeywordSpan">not</span>(&#x27;255.255.255.0&#x27;) // 0.0.0.255
-ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
-ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
-ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
-ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+ip.mask('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.cidr('192.168.1.134/26') // 192.168.1.128
+ip.<span class="apidocCodeKeywordSpan">not</span>('255.255.255.0') // 0.0.0.255
+ip.or('192.168.1.134', '0.0.0.255') // 192.168.1.255
+ip.isPrivate('127.0.0.1') // true
+ip.isV4Format('127.0.0.1'); // true
+ip.isV6Format('::ffff:127.0.0.1'); // true
 
 // operate on buffers in-place
 var buf = new Buffer(128);
@@ -1036,7 +1029,7 @@ var buf = new Buffer(128);
 
   // same protocol
   if (a.length === b.length) {
-    for (var i = 0; i &#x3c; a.length; ++i) {
+    for (var i = 0; i &lt; a.length; ++i) {
       a[i] |= b[i];
     }
     return ip.toString(a);
@@ -1045,13 +1038,13 @@ var buf = new Buffer(128);
   } else {
     var buff = a;
     var other = b;
-    if (b.length &#x3e; a.length) {
+    if (b.length &gt; a.length) {
       buff = b;
       other = a;
     }
 
     var offset = buff.length - other.length;
-    for (var i = offset; i &#x3c; buff.length; ++i) {
+    for (var i = offset; i &lt; buff.length; ++i) {
       buff[i] |= other[i - offset];
     }
 
@@ -1059,17 +1052,17 @@ var buf = new Buffer(128);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
-ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.isEqual('::1', '::0:1'); // true
+ip.toBuffer('127.0.0.1') // Buffer([127, 0, 0, 1])
 ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
 ip.fromPrefixLen(24) // 255.255.255.0
-ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
-ip.<span class="apidocCodeKeywordSpan">or</span>(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
-ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
-ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
-ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+ip.mask('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.cidr('192.168.1.134/26') // 192.168.1.128
+ip.not('255.255.255.0') // 0.0.0.255
+ip.<span class="apidocCodeKeywordSpan">or</span>('192.168.1.134', '0.0.0.255') // 192.168.1.255
+ip.isPrivate('127.0.0.1') // true
+ip.isV4Format('127.0.0.1'); // true
+ip.isV6Format('::ffff:127.0.0.1'); // true
 
 // operate on buffers in-place
 var buf = new Buffer(128);
@@ -1089,17 +1082,17 @@ var offset = 64;
     <li>description and source-code<pre class="apidocCodePre">subnet = function (addr, mask) {
   var networkAddress = ip.toLong(ip.mask(addr, mask));
 
-  // Calculate the mask&#x27;s length.
+  // Calculate the mask's length.
   var maskBuffer = ip.toBuffer(mask);
   var maskLength = 0;
 
-  for (var i = 0; i &#x3c; maskBuffer.length; i++) {
+  for (var i = 0; i &lt; maskBuffer.length; i++) {
     if (maskBuffer[i] === 0xff) {
       maskLength += 8;
     } else {
-      var octet = maskBuffer[i] &#x26; 0xff;
+      var octet = maskBuffer[i] &amp; 0xff;
       while (octet) {
-        octet = (octet &#x3c;&#x3c; 1) &#x26; 0xff;
+        octet = (octet &lt;&lt; 1) &amp; 0xff;
         maskLength++;
       }
     }
@@ -1109,16 +1102,16 @@ var offset = 64;
 
   return {
     networkAddress: ip.fromLong(networkAddress),
-    firstAddress: numberOfAddresses &#x3c;= 2 ?
+    firstAddress: numberOfAddresses &lt;= 2 ?
                     ip.fromLong(networkAddress) :
                     ip.fromLong(networkAddress + 1),
-    lastAddress: numberOfAddresses &#x3c;= 2 ?
+    lastAddress: numberOfAddresses &lt;= 2 ?
                     ip.fromLong(networkAddress + numberOfAddresses - 1) :
                     ip.fromLong(networkAddress + numberOfAddresses - 2),
     broadcastAddress: ip.fromLong(networkAddress + numberOfAddresses - 1),
     subnetMask: mask,
     subnetMaskLength: maskLength,
-    numHosts: numberOfAddresses &#x3c;= 2 ?
+    numHosts: numberOfAddresses &lt;= 2 ?
                 numberOfAddresses : numberOfAddresses - 2,
     length: numberOfAddresses,
     contains: function(other) {
@@ -1130,16 +1123,16 @@ var offset = 64;
 // operate on buffers in-place
 var buf = new Buffer(128);
 var offset = 64;
-ip.toBuffer(&#x27;127.0.0.1&#x27;, buf, offset);  // [127, 0, 0, 1] at offset 64
-ip.toString(buf, offset, 4);            // &#x27;127.0.0.1&#x27;
+ip.toBuffer('127.0.0.1', buf, offset);  // [127, 0, 0, 1] at offset 64
+ip.toString(buf, offset, 4);            // '127.0.0.1'
 
 // subnet information
-ip.<span class="apidocCodeKeywordSpan">subnet</span>(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.192&#x27;)
-// { networkAddress: &#x27;192.168.1.128&#x27;,
-//   firstAddress: &#x27;192.168.1.129&#x27;,
-//   lastAddress: &#x27;192.168.1.190&#x27;,
-//   broadcastAddress: &#x27;192.168.1.191&#x27;,
-//   subnetMask: &#x27;255.255.255.192&#x27;,
+ip.<span class="apidocCodeKeywordSpan">subnet</span>('192.168.1.134', '255.255.255.192')
+// { networkAddress: '192.168.1.128',
+//   firstAddress: '192.168.1.129',
+//   lastAddress: '192.168.1.190',
+//   broadcastAddress: '192.168.1.191',
+//   subnetMask: '255.255.255.192',
 //   subnetMaskLength: 26,
 //   numHosts: 62,
 ...</pre></li>
@@ -1162,49 +1155,49 @@ ip.<span class="apidocCodeKeywordSpan">subnet</span>(&#x27;192.168.1.134&#x27;, 
   if (this.isV4Format(ip)) {
     result = buff || new Buffer(offset + 4);
     ip.split(/\./g).map(function(byte) {
-      result[offset++] = parseInt(byte, 10) &#x26; 0xff;
+      result[offset++] = parseInt(byte, 10) &amp; 0xff;
     });
   } else if (this.isV6Format(ip)) {
-    var sections = ip.split(&#x27;:&#x27;, 8);
+    var sections = ip.split(':', 8);
 
     var i;
-    for (i = 0; i &#x3c; sections.length; i++) {
+    for (i = 0; i &lt; sections.length; i++) {
       var isv4 = this.isV4Format(sections[i]);
       var v4Buffer;
 
       if (isv4) {
         v4Buffer = this.toBuffer(sections[i]);
-        sections[i] = v4Buffer.slice(0, 2).toString(&#x27;hex&#x27;);
+        sections[i] = v4Buffer.slice(0, 2).toString('hex');
       }
 
-      if (v4Buffer &#x26;&#x26; ++i &#x3c; 8) {
-        sections.splice(i, 0, v4Buffer.slice(2, 4).toString(&#x27;hex&#x27;));
+      if (v4Buffer &amp;&amp; ++i &lt; 8) {
+        sections.splice(i, 0, v4Buffer.slice(2, 4).toString('hex'));
       }
     }
 
-    if (sections[0] === &#x27;&#x27;) {
-      while (sections.length &#x3c; 8) sections.unshift(&#x27;0&#x27;);
-    } else if (sections[sections.length - 1] === &#x27;&#x27;) {
-      while (sections.length &#x3c; 8) sections.push(&#x27;0&#x27;);
-    } else if (sections.length &#x3c; 8) {
-      for (i = 0; i &#x3c; sections.length &#x26;&#x26; sections[i] !== &#x27;&#x27;; i++);
+    if (sections[0] === '') {
+      while (sections.length &lt; 8) sections.unshift('0');
+    } else if (sections[sections.length - 1] === '') {
+      while (sections.length &lt; 8) sections.push('0');
+    } else if (sections.length &lt; 8) {
+      for (i = 0; i &lt; sections.length &amp;&amp; sections[i] !== ''; i++);
       var argv = [ i, 1 ];
-      for (i = 9 - sections.length; i &#x3e; 0; i--) {
-        argv.push(&#x27;0&#x27;);
+      for (i = 9 - sections.length; i &gt; 0; i--) {
+        argv.push('0');
       }
       sections.splice.apply(sections, argv);
     }
 
     result = buff || new Buffer(offset + 16);
-    for (i = 0; i &#x3c; sections.length; i++) {
+    for (i = 0; i &lt; sections.length; i++) {
       var word = parseInt(sections[i], 16);
-      result[offset++] = (word &#x3e;&#x3e; 8) &#x26; 0xff;
-      result[offset++] = word &#x26; 0xff;
+      result[offset++] = (word &gt;&gt; 8) &amp; 0xff;
+      result[offset++] = word &amp; 0xff;
     }
   }
 
   if (!result) {
-    throw Error(&#x27;Invalid ip address: &#x27; + ip);
+    throw Error('Invalid ip address: ' + ip);
   }
 
   return result;
@@ -1213,18 +1206,18 @@ ip.<span class="apidocCodeKeywordSpan">subnet</span>(&#x27;192.168.1.134&#x27;, 
 Get your ip address, compare ip addresses, validate ip addresses, etc.
 
 ```js
-var ip = require(&#x27;ip&#x27;);
+var ip = require('ip');
 
 ip.address() // my ip address
-ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
-ip.<span class="apidocCodeKeywordSpan">toBuffer</span>(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.isEqual('::1', '::0:1'); // true
+ip.<span class="apidocCodeKeywordSpan">toBuffer</span>('127.0.0.1') // Buffer([127, 0, 0, 1])
 ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
 ip.fromPrefixLen(24) // 255.255.255.0
-ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
-ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
-ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
+ip.mask('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.cidr('192.168.1.134/26') // 192.168.1.128
+ip.not('255.255.255.0') // 0.0.0.255
+ip.or('192.168.1.134', '0.0.0.255') // 192.168.1.255
+ip.isPrivate('127.0.0.1') // true
 ...</pre></li>
     </ul>
 
@@ -1239,22 +1232,22 @@ ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
     <ul>
     <li>description and source-code<pre class="apidocCodePre">toLong = function (ip) {
   var ipl = 0;
-  ip.split(&#x27;.&#x27;).forEach(function(octet) {
-    ipl &#x3c;&#x3c;= 8;
+  ip.split('.').forEach(function(octet) {
+    ipl &lt;&lt;= 8;
     ipl += parseInt(octet);
   });
-  return(ipl &#x3e;&#x3e;&#x3e; 0);
+  return(ipl &gt;&gt;&gt; 0);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 // Same as previous.
 
 // range checking
-ip.cidrSubnet(&#x27;192.168.1.134/26&#x27;).contains(&#x27;192.168.1.190&#x27;) // true
+ip.cidrSubnet('192.168.1.134/26').contains('192.168.1.190') // true
 
 
 // ipv4 long conversion
-ip.<span class="apidocCodeKeywordSpan">toLong</span>(&#x27;127.0.0.1&#x27;); // 2130706433
-ip.fromLong(2130706433); // &#x27;127.0.0.1&#x27;
+ip.<span class="apidocCodeKeywordSpan">toLong</span>('127.0.0.1'); // 2130706433
+ip.fromLong(2130706433); // '127.0.0.1'
 ```
 
 ### License
@@ -1290,7 +1283,7 @@ This software is licensed under the MIT License.
   // If a specific network interface has been named,
   // return the address.
   //
-  if (name &#x26;&#x26; name !== &#x27;private&#x27; &#x26;&#x26; name !== &#x27;public&#x27;) {
+  if (name &amp;&amp; name !== 'private' &amp;&amp; name !== 'public') {
     var res = interfaces[name].filter(function(details) {
       var itemFamily = details.family.toLowerCase();
       return itemFamily === family;
@@ -1313,7 +1306,7 @@ This software is licensed under the MIT License.
         return true;
       }
 
-      return name === &#x27;public&#x27; ? ip.isPrivate(details.address) :
+      return name === 'public' ? ip.isPrivate(details.address) :
           ip.isPublic(details.address);
     });
 
@@ -1328,16 +1321,16 @@ This software is licensed under the MIT License.
 Get your ip address, compare ip addresses, validate ip addresses, etc.
 
 ```js
-var ip = require(&#x27;ip&#x27;);
+var ip = require('ip');
 
 ip.<span class="apidocCodeKeywordSpan">address</span>() // my ip address
-ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
-ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.isEqual('::1', '::0:1'); // true
+ip.toBuffer('127.0.0.1') // Buffer([127, 0, 0, 1])
 ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
 ip.fromPrefixLen(24) // 255.255.255.0
-ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
+ip.mask('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.cidr('192.168.1.134/26') // 192.168.1.128
+ip.not('255.255.255.0') // 0.0.0.255
 ...</pre></li>
     </ul>
 
@@ -1356,11 +1349,11 @@ ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">cidr = function (cidrString) {
-  var cidrParts = cidrString.split(&#x27;/&#x27;);
+  var cidrParts = cidrString.split('/');
 
   var addr = cidrParts[0];
   if (cidrParts.length !== 2)
-    throw new Error(&#x27;invalid CIDR subnet: &#x27; + addr);
+    throw new Error('invalid CIDR subnet: ' + addr);
 
   var mask = ip.fromPrefixLen(parseInt(cidrParts[1], 10));
 
@@ -1369,17 +1362,17 @@ ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
     <li>example usage<pre class="apidocCodePre">...
 
 ip.address() // my ip address
-ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
-ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.isEqual('::1', '::0:1'); // true
+ip.toBuffer('127.0.0.1') // Buffer([127, 0, 0, 1])
 ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
 ip.fromPrefixLen(24) // 255.255.255.0
-ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.<span class="apidocCodeKeywordSpan">cidr</span>(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
-ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
-ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
-ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
-ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+ip.mask('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.<span class="apidocCodeKeywordSpan">cidr</span>('192.168.1.134/26') // 192.168.1.128
+ip.not('255.255.255.0') // 0.0.0.255
+ip.or('192.168.1.134', '0.0.0.255') // 192.168.1.255
+ip.isPrivate('127.0.0.1') // true
+ip.isV4Format('127.0.0.1'); // true
+ip.isV6Format('::ffff:127.0.0.1'); // true
 
 // operate on buffers in-place
 ...</pre></li>
@@ -1400,29 +1393,29 @@ ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">cidrSubnet = function (cidrString) {
-  var cidrParts = cidrString.split(&#x27;/&#x27;);
+  var cidrParts = cidrString.split('/');
 
   var addr = cidrParts[0];
   if (cidrParts.length !== 2)
-    throw new Error(&#x27;invalid CIDR subnet: &#x27; + addr);
+    throw new Error('invalid CIDR subnet: ' + addr);
 
   var mask = ip.fromPrefixLen(parseInt(cidrParts[1], 10));
 
   return ip.subnet(addr, mask);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-//   lastAddress: &#x27;192.168.1.190&#x27;,
-//   broadcastAddress: &#x27;192.168.1.191&#x27;,
-//   subnetMask: &#x27;255.255.255.192&#x27;,
+//   lastAddress: '192.168.1.190',
+//   broadcastAddress: '192.168.1.191',
+//   subnetMask: '255.255.255.192',
 //   subnetMaskLength: 26,
 //   numHosts: 62,
 //   length: 64,
 //   contains: function(addr){...} }
-ip.<span class="apidocCodeKeywordSpan">cidrSubnet</span>(&#x27;192.168.1.134/26&#x27;)
+ip.<span class="apidocCodeKeywordSpan">cidrSubnet</span>('192.168.1.134/26')
 // Same as previous.
 
 // range checking
-ip.cidrSubnet(&#x27;192.168.1.134/26&#x27;).contains(&#x27;192.168.1.190&#x27;) // true
+ip.cidrSubnet('192.168.1.134/26').contains('192.168.1.190') // true
 
 
 // ipv4 long conversion
@@ -1444,20 +1437,20 @@ ip.cidrSubnet(&#x27;192.168.1.134/26&#x27;).contains(&#x27;192.168.1.190&#x27;) 
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fromLong = function (ipl) {
-  return ((ipl &#x3e;&#x3e;&#x3e; 24) + &#x27;.&#x27; +
-      (ipl &#x3e;&#x3e; 16 &#x26; 255) + &#x27;.&#x27; +
-      (ipl &#x3e;&#x3e; 8 &#x26; 255) + &#x27;.&#x27; +
-      (ipl &#x26; 255) );
+  return ((ipl &gt;&gt;&gt; 24) + '.' +
+      (ipl &gt;&gt; 16 &amp; 255) + '.' +
+      (ipl &gt;&gt; 8 &amp; 255) + '.' +
+      (ipl &amp; 255) );
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
 // range checking
-ip.cidrSubnet(&#x27;192.168.1.134/26&#x27;).contains(&#x27;192.168.1.190&#x27;) // true
+ip.cidrSubnet('192.168.1.134/26').contains('192.168.1.190') // true
 
 
 // ipv4 long conversion
-ip.toLong(&#x27;127.0.0.1&#x27;); // 2130706433
-ip.<span class="apidocCodeKeywordSpan">fromLong</span>(2130706433); // &#x27;127.0.0.1&#x27;
+ip.toLong('127.0.0.1'); // 2130706433
+ip.<span class="apidocCodeKeywordSpan">fromLong</span>(2130706433); // '127.0.0.1'
 ```
 
 ### License
@@ -1483,46 +1476,46 @@ Copyright Fedor Indutny, 2012.
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fromPrefixLen = function (prefixlen, family) {
-  if (prefixlen &#x3e; 32) {
-    family = &#x27;ipv6&#x27;;
+  if (prefixlen &gt; 32) {
+    family = 'ipv6';
   } else {
     family = _normalizeFamily(family);
   }
 
   var len = 4;
-  if (family === &#x27;ipv6&#x27;) {
+  if (family === 'ipv6') {
     len = 16;
   }
   var buff = new Buffer(len);
 
-  for (var i = 0, n = buff.length; i &#x3c; n; ++i) {
+  for (var i = 0, n = buff.length; i &lt; n; ++i) {
     var bits = 8;
-    if (prefixlen &#x3c; 8) {
+    if (prefixlen &lt; 8) {
       bits = prefixlen;
     }
     prefixlen -= bits;
 
-    buff[i] = ~(0xff &#x3e;&#x3e; bits) &#x26; 0xff;
+    buff[i] = ~(0xff &gt;&gt; bits) &amp; 0xff;
   }
 
   return ip.toString(buff);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 ```js
-var ip = require(&#x27;ip&#x27;);
+var ip = require('ip');
 
 ip.address() // my ip address
-ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
-ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.isEqual('::1', '::0:1'); // true
+ip.toBuffer('127.0.0.1') // Buffer([127, 0, 0, 1])
 ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
 ip.<span class="apidocCodeKeywordSpan">fromPrefixLen</span>(24) // 255.255.255.0
-ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
-ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
-ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
-ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
-ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+ip.mask('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.cidr('192.168.1.134/26') // 192.168.1.128
+ip.not('255.255.255.0') // 0.0.0.255
+ip.or('192.168.1.134', '0.0.0.255') // 192.168.1.255
+ip.isPrivate('127.0.0.1') // true
+ip.isV4Format('127.0.0.1'); // true
+ip.isV6Format('::ffff:127.0.0.1'); // true
 ...</pre></li>
     </ul>
 
@@ -1546,7 +1539,7 @@ ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
 
   // Same protocol
   if (a.length === b.length) {
-    for (var i = 0; i &#x3c; a.length; i++) {
+    for (var i = 0; i &lt; a.length; i++) {
       if (a[i] !== b[i]) return false;
     }
     return true;
@@ -1560,14 +1553,14 @@ ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
   }
 
   // a - IPv4, b - IPv6
-  for (var i = 0; i &#x3c; 10; i++) {
+  for (var i = 0; i &lt; 10; i++) {
     if (b[i] !== 0) return false;
   }
 
   var word = b.readUInt16BE(10);
-  if (word !== 0 &#x26;&#x26; word !== 0xffff) return false;
+  if (word !== 0 &amp;&amp; word !== 0xffff) return false;
 
-  for (var i = 0; i &#x3c; 4; i++) {
+  for (var i = 0; i &lt; 4; i++) {
     if (a[i] !== b[i + 12]) return false;
   }
 
@@ -1578,17 +1571,17 @@ ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
 Get your ip address, compare ip addresses, validate ip addresses, etc.
 
 ```js
-var ip = require(&#x27;ip&#x27;);
+var ip = require('ip');
 
 ip.address() // my ip address
-ip.<span class="apidocCodeKeywordSpan">isEqual</span>(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
-ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.<span class="apidocCodeKeywordSpan">isEqual</span>('::1', '::0:1'); // true
+ip.toBuffer('127.0.0.1') // Buffer([127, 0, 0, 1])
 ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
 ip.fromPrefixLen(24) // 255.255.255.0
-ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
-ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
+ip.mask('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.cidr('192.168.1.134/26') // 192.168.1.128
+ip.not('255.255.255.0') // 0.0.0.255
+ip.or('192.168.1.134', '0.0.0.255') // 192.168.1.255
 ...</pre></li>
     </ul>
 
@@ -1644,21 +1637,21 @@ ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
     /^::$/.test(addr);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.toBuffer('127.0.0.1') // Buffer([127, 0, 0, 1])
 ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
 ip.fromPrefixLen(24) // 255.255.255.0
-ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
-ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
-ip.<span class="apidocCodeKeywordSpan">isPrivate</span>(&#x27;127.0.0.1&#x27;) // true
-ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
-ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+ip.mask('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.cidr('192.168.1.134/26') // 192.168.1.128
+ip.not('255.255.255.0') // 0.0.0.255
+ip.or('192.168.1.134', '0.0.0.255') // 192.168.1.255
+ip.<span class="apidocCodeKeywordSpan">isPrivate</span>('127.0.0.1') // true
+ip.isV4Format('127.0.0.1'); // true
+ip.isV6Format('::ffff:127.0.0.1'); // true
 
 // operate on buffers in-place
 var buf = new Buffer(128);
 var offset = 64;
-ip.toBuffer(&#x27;127.0.0.1&#x27;, buf, offset);  // [127, 0, 0, 1] at offset 64
+ip.toBuffer('127.0.0.1', buf, offset);  // [127, 0, 0, 1] at offset 64
 ...</pre></li>
     </ul>
 
@@ -1702,19 +1695,19 @@ ip.toBuffer(&#x27;127.0.0.1&#x27;, buf, offset);  // [127, 0, 0, 1] at offset 64
     <li>example usage<pre class="apidocCodePre">...
 ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
 ip.fromPrefixLen(24) // 255.255.255.0
-ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
-ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
-ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
-ip.<span class="apidocCodeKeywordSpan">isV4Format</span>(&#x27;127.0.0.1&#x27;); // true
-ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+ip.mask('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.cidr('192.168.1.134/26') // 192.168.1.128
+ip.not('255.255.255.0') // 0.0.0.255
+ip.or('192.168.1.134', '0.0.0.255') // 192.168.1.255
+ip.isPrivate('127.0.0.1') // true
+ip.<span class="apidocCodeKeywordSpan">isV4Format</span>('127.0.0.1'); // true
+ip.isV6Format('::ffff:127.0.0.1'); // true
 
 // operate on buffers in-place
 var buf = new Buffer(128);
 var offset = 64;
-ip.toBuffer(&#x27;127.0.0.1&#x27;, buf, offset);  // [127, 0, 0, 1] at offset 64
-ip.toString(buf, offset, 4);            // &#x27;127.0.0.1&#x27;
+ip.toBuffer('127.0.0.1', buf, offset);  // [127, 0, 0, 1] at offset 64
+ip.toString(buf, offset, 4);            // '127.0.0.1'
 ...</pre></li>
     </ul>
 
@@ -1737,19 +1730,19 @@ ip.toString(buf, offset, 4);            // &#x27;127.0.0.1&#x27;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 ip.fromPrefixLen(24) // 255.255.255.0
-ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
-ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
-ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
-ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
-ip.<span class="apidocCodeKeywordSpan">isV6Format</span>(&#x27;::ffff:127.0.0.1&#x27;); // true
+ip.mask('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.cidr('192.168.1.134/26') // 192.168.1.128
+ip.not('255.255.255.0') // 0.0.0.255
+ip.or('192.168.1.134', '0.0.0.255') // 192.168.1.255
+ip.isPrivate('127.0.0.1') // true
+ip.isV4Format('127.0.0.1'); // true
+ip.<span class="apidocCodeKeywordSpan">isV6Format</span>('::ffff:127.0.0.1'); // true
 
 // operate on buffers in-place
 var buf = new Buffer(128);
 var offset = 64;
-ip.toBuffer(&#x27;127.0.0.1&#x27;, buf, offset);  // [127, 0, 0, 1] at offset 64
-ip.toString(buf, offset, 4);            // &#x27;127.0.0.1&#x27;
+ip.toBuffer('127.0.0.1', buf, offset);  // [127, 0, 0, 1] at offset 64
+ip.toString(buf, offset, 4);            // '127.0.0.1'
 ...</pre></li>
     </ul>
 
@@ -1773,11 +1766,11 @@ ip.toString(buf, offset, 4);            // &#x27;127.0.0.1&#x27;
   //
   family = _normalizeFamily(family);
 
-  if (family !== &#x27;ipv4&#x27; &#x26;&#x26; family !== &#x27;ipv6&#x27;) {
-    throw new Error(&#x27;family must be ipv4 or ipv6&#x27;);
+  if (family !== 'ipv4' &amp;&amp; family !== 'ipv6') {
+    throw new Error('family must be ipv4 or ipv6');
   }
 
-  return family === &#x27;ipv4&#x27; ? &#x27;127.0.0.1&#x27; : &#x27;fe80::1&#x27;;
+  return family === 'ipv4' ? '127.0.0.1' : 'fe80::1';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1805,49 +1798,49 @@ ip.toString(buf, offset, 4);            // &#x27;127.0.0.1&#x27;
   var i = 0;
   // Same protocol - do bitwise and
   if (addr.length === mask.length) {
-    for (i = 0; i &#x3c; addr.length; i++) {
-      result[i] = addr[i] &#x26; mask[i];
+    for (i = 0; i &lt; addr.length; i++) {
+      result[i] = addr[i] &amp; mask[i];
     }
   } else if (mask.length === 4) {
     // IPv6 address and IPv4 mask
     // (Mask low bits)
-    for (i = 0; i &#x3c; mask.length; i++) {
-      result[i] = addr[addr.length - 4  + i] &#x26; mask[i];
+    for (i = 0; i &lt; mask.length; i++) {
+      result[i] = addr[addr.length - 4  + i] &amp; mask[i];
     }
   } else {
     // IPv6 mask and IPv4 addr
-    for (var i = 0; i &#x3c; result.length - 6; i++) {
+    for (var i = 0; i &lt; result.length - 6; i++) {
       result[i] = 0;
     }
 
     // ::ffff:ipv4
     result[10] = 0xff;
     result[11] = 0xff;
-    for (i = 0; i &#x3c; addr.length; i++) {
-      result[i + 12] = addr[i] &#x26; mask[i + 12];
+    for (i = 0; i &lt; addr.length; i++) {
+      result[i + 12] = addr[i] &amp; mask[i + 12];
     }
     i = i + 12;
   }
-  for (; i &#x3c; result.length; i++)
+  for (; i &lt; result.length; i++)
     result[i] = 0;
 
   return ip.toString(result);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var ip = require(&#x27;ip&#x27;);
+var ip = require('ip');
 
 ip.address() // my ip address
-ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
-ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.isEqual('::1', '::0:1'); // true
+ip.toBuffer('127.0.0.1') // Buffer([127, 0, 0, 1])
 ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
 ip.fromPrefixLen(24) // 255.255.255.0
-ip.<span class="apidocCodeKeywordSpan">mask</span>(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
-ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
-ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
-ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
-ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+ip.<span class="apidocCodeKeywordSpan">mask</span>('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.cidr('192.168.1.134/26') // 192.168.1.128
+ip.not('255.255.255.0') // 0.0.0.255
+ip.or('192.168.1.134', '0.0.0.255') // 192.168.1.255
+ip.isPrivate('127.0.0.1') // true
+ip.isV4Format('127.0.0.1'); // true
+ip.isV6Format('::ffff:127.0.0.1'); // true
 ...</pre></li>
     </ul>
 
@@ -1867,24 +1860,24 @@ ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
     <ul>
     <li>description and source-code<pre class="apidocCodePre">not = function (addr) {
   var buff = ip.toBuffer(addr);
-  for (var i = 0; i &#x3c; buff.length; i++) {
+  for (var i = 0; i &lt; buff.length; i++) {
     buff[i] = 0xff ^ buff[i];
   }
   return ip.toString(buff);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 ip.address() // my ip address
-ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
-ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.isEqual('::1', '::0:1'); // true
+ip.toBuffer('127.0.0.1') // Buffer([127, 0, 0, 1])
 ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
 ip.fromPrefixLen(24) // 255.255.255.0
-ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.<span class="apidocCodeKeywordSpan">not</span>(&#x27;255.255.255.0&#x27;) // 0.0.0.255
-ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
-ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
-ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
-ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+ip.mask('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.cidr('192.168.1.134/26') // 192.168.1.128
+ip.<span class="apidocCodeKeywordSpan">not</span>('255.255.255.0') // 0.0.0.255
+ip.or('192.168.1.134', '0.0.0.255') // 192.168.1.255
+ip.isPrivate('127.0.0.1') // true
+ip.isV4Format('127.0.0.1'); // true
+ip.isV6Format('::ffff:127.0.0.1'); // true
 
 // operate on buffers in-place
 var buf = new Buffer(128);
@@ -1911,7 +1904,7 @@ var buf = new Buffer(128);
 
   // same protocol
   if (a.length === b.length) {
-    for (var i = 0; i &#x3c; a.length; ++i) {
+    for (var i = 0; i &lt; a.length; ++i) {
       a[i] |= b[i];
     }
     return ip.toString(a);
@@ -1920,13 +1913,13 @@ var buf = new Buffer(128);
   } else {
     var buff = a;
     var other = b;
-    if (b.length &#x3e; a.length) {
+    if (b.length &gt; a.length) {
       buff = b;
       other = a;
     }
 
     var offset = buff.length - other.length;
-    for (var i = offset; i &#x3c; buff.length; ++i) {
+    for (var i = offset; i &lt; buff.length; ++i) {
       buff[i] |= other[i - offset];
     }
 
@@ -1934,17 +1927,17 @@ var buf = new Buffer(128);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
-ip.toBuffer(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.isEqual('::1', '::0:1'); // true
+ip.toBuffer('127.0.0.1') // Buffer([127, 0, 0, 1])
 ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
 ip.fromPrefixLen(24) // 255.255.255.0
-ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
-ip.<span class="apidocCodeKeywordSpan">or</span>(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
-ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
-ip.isV4Format(&#x27;127.0.0.1&#x27;); // true
-ip.isV6Format(&#x27;::ffff:127.0.0.1&#x27;); // true
+ip.mask('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.cidr('192.168.1.134/26') // 192.168.1.128
+ip.not('255.255.255.0') // 0.0.0.255
+ip.<span class="apidocCodeKeywordSpan">or</span>('192.168.1.134', '0.0.0.255') // 192.168.1.255
+ip.isPrivate('127.0.0.1') // true
+ip.isV4Format('127.0.0.1'); // true
+ip.isV6Format('::ffff:127.0.0.1'); // true
 
 // operate on buffers in-place
 var buf = new Buffer(128);
@@ -1969,17 +1962,17 @@ var offset = 64;
     <li>description and source-code<pre class="apidocCodePre">subnet = function (addr, mask) {
   var networkAddress = ip.toLong(ip.mask(addr, mask));
 
-  // Calculate the mask&#x27;s length.
+  // Calculate the mask's length.
   var maskBuffer = ip.toBuffer(mask);
   var maskLength = 0;
 
-  for (var i = 0; i &#x3c; maskBuffer.length; i++) {
+  for (var i = 0; i &lt; maskBuffer.length; i++) {
     if (maskBuffer[i] === 0xff) {
       maskLength += 8;
     } else {
-      var octet = maskBuffer[i] &#x26; 0xff;
+      var octet = maskBuffer[i] &amp; 0xff;
       while (octet) {
-        octet = (octet &#x3c;&#x3c; 1) &#x26; 0xff;
+        octet = (octet &lt;&lt; 1) &amp; 0xff;
         maskLength++;
       }
     }
@@ -1989,16 +1982,16 @@ var offset = 64;
 
   return {
     networkAddress: ip.fromLong(networkAddress),
-    firstAddress: numberOfAddresses &#x3c;= 2 ?
+    firstAddress: numberOfAddresses &lt;= 2 ?
                     ip.fromLong(networkAddress) :
                     ip.fromLong(networkAddress + 1),
-    lastAddress: numberOfAddresses &#x3c;= 2 ?
+    lastAddress: numberOfAddresses &lt;= 2 ?
                     ip.fromLong(networkAddress + numberOfAddresses - 1) :
                     ip.fromLong(networkAddress + numberOfAddresses - 2),
     broadcastAddress: ip.fromLong(networkAddress + numberOfAddresses - 1),
     subnetMask: mask,
     subnetMaskLength: maskLength,
-    numHosts: numberOfAddresses &#x3c;= 2 ?
+    numHosts: numberOfAddresses &lt;= 2 ?
                 numberOfAddresses : numberOfAddresses - 2,
     length: numberOfAddresses,
     contains: function(other) {
@@ -2010,16 +2003,16 @@ var offset = 64;
 // operate on buffers in-place
 var buf = new Buffer(128);
 var offset = 64;
-ip.toBuffer(&#x27;127.0.0.1&#x27;, buf, offset);  // [127, 0, 0, 1] at offset 64
-ip.toString(buf, offset, 4);            // &#x27;127.0.0.1&#x27;
+ip.toBuffer('127.0.0.1', buf, offset);  // [127, 0, 0, 1] at offset 64
+ip.toString(buf, offset, 4);            // '127.0.0.1'
 
 // subnet information
-ip.<span class="apidocCodeKeywordSpan">subnet</span>(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.192&#x27;)
-// { networkAddress: &#x27;192.168.1.128&#x27;,
-//   firstAddress: &#x27;192.168.1.129&#x27;,
-//   lastAddress: &#x27;192.168.1.190&#x27;,
-//   broadcastAddress: &#x27;192.168.1.191&#x27;,
-//   subnetMask: &#x27;255.255.255.192&#x27;,
+ip.<span class="apidocCodeKeywordSpan">subnet</span>('192.168.1.134', '255.255.255.192')
+// { networkAddress: '192.168.1.128',
+//   firstAddress: '192.168.1.129',
+//   lastAddress: '192.168.1.190',
+//   broadcastAddress: '192.168.1.191',
+//   subnetMask: '255.255.255.192',
 //   subnetMaskLength: 26,
 //   numHosts: 62,
 ...</pre></li>
@@ -2047,49 +2040,49 @@ ip.<span class="apidocCodeKeywordSpan">subnet</span>(&#x27;192.168.1.134&#x27;, 
   if (this.isV4Format(ip)) {
     result = buff || new Buffer(offset + 4);
     ip.split(/\./g).map(function(byte) {
-      result[offset++] = parseInt(byte, 10) &#x26; 0xff;
+      result[offset++] = parseInt(byte, 10) &amp; 0xff;
     });
   } else if (this.isV6Format(ip)) {
-    var sections = ip.split(&#x27;:&#x27;, 8);
+    var sections = ip.split(':', 8);
 
     var i;
-    for (i = 0; i &#x3c; sections.length; i++) {
+    for (i = 0; i &lt; sections.length; i++) {
       var isv4 = this.isV4Format(sections[i]);
       var v4Buffer;
 
       if (isv4) {
         v4Buffer = this.toBuffer(sections[i]);
-        sections[i] = v4Buffer.slice(0, 2).toString(&#x27;hex&#x27;);
+        sections[i] = v4Buffer.slice(0, 2).toString('hex');
       }
 
-      if (v4Buffer &#x26;&#x26; ++i &#x3c; 8) {
-        sections.splice(i, 0, v4Buffer.slice(2, 4).toString(&#x27;hex&#x27;));
+      if (v4Buffer &amp;&amp; ++i &lt; 8) {
+        sections.splice(i, 0, v4Buffer.slice(2, 4).toString('hex'));
       }
     }
 
-    if (sections[0] === &#x27;&#x27;) {
-      while (sections.length &#x3c; 8) sections.unshift(&#x27;0&#x27;);
-    } else if (sections[sections.length - 1] === &#x27;&#x27;) {
-      while (sections.length &#x3c; 8) sections.push(&#x27;0&#x27;);
-    } else if (sections.length &#x3c; 8) {
-      for (i = 0; i &#x3c; sections.length &#x26;&#x26; sections[i] !== &#x27;&#x27;; i++);
+    if (sections[0] === '') {
+      while (sections.length &lt; 8) sections.unshift('0');
+    } else if (sections[sections.length - 1] === '') {
+      while (sections.length &lt; 8) sections.push('0');
+    } else if (sections.length &lt; 8) {
+      for (i = 0; i &lt; sections.length &amp;&amp; sections[i] !== ''; i++);
       var argv = [ i, 1 ];
-      for (i = 9 - sections.length; i &#x3e; 0; i--) {
-        argv.push(&#x27;0&#x27;);
+      for (i = 9 - sections.length; i &gt; 0; i--) {
+        argv.push('0');
       }
       sections.splice.apply(sections, argv);
     }
 
     result = buff || new Buffer(offset + 16);
-    for (i = 0; i &#x3c; sections.length; i++) {
+    for (i = 0; i &lt; sections.length; i++) {
       var word = parseInt(sections[i], 16);
-      result[offset++] = (word &#x3e;&#x3e; 8) &#x26; 0xff;
-      result[offset++] = word &#x26; 0xff;
+      result[offset++] = (word &gt;&gt; 8) &amp; 0xff;
+      result[offset++] = word &amp; 0xff;
     }
   }
 
   if (!result) {
-    throw Error(&#x27;Invalid ip address: &#x27; + ip);
+    throw Error('Invalid ip address: ' + ip);
   }
 
   return result;
@@ -2098,18 +2091,18 @@ ip.<span class="apidocCodeKeywordSpan">subnet</span>(&#x27;192.168.1.134&#x27;, 
 Get your ip address, compare ip addresses, validate ip addresses, etc.
 
 ```js
-var ip = require(&#x27;ip&#x27;);
+var ip = require('ip');
 
 ip.address() // my ip address
-ip.isEqual(&#x27;::1&#x27;, &#x27;::0:1&#x27;); // true
-ip.<span class="apidocCodeKeywordSpan">toBuffer</span>(&#x27;127.0.0.1&#x27;) // Buffer([127, 0, 0, 1])
+ip.isEqual('::1', '::0:1'); // true
+ip.<span class="apidocCodeKeywordSpan">toBuffer</span>('127.0.0.1') // Buffer([127, 0, 0, 1])
 ip.toString(new Buffer([127, 0, 0, 1])) // 127.0.0.1
 ip.fromPrefixLen(24) // 255.255.255.0
-ip.mask(&#x27;192.168.1.134&#x27;, &#x27;255.255.255.0&#x27;) // 192.168.1.0
-ip.cidr(&#x27;192.168.1.134/26&#x27;) // 192.168.1.128
-ip.not(&#x27;255.255.255.0&#x27;) // 0.0.0.255
-ip.or(&#x27;192.168.1.134&#x27;, &#x27;0.0.0.255&#x27;) // 192.168.1.255
-ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
+ip.mask('192.168.1.134', '255.255.255.0') // 192.168.1.0
+ip.cidr('192.168.1.134/26') // 192.168.1.128
+ip.not('255.255.255.0') // 0.0.0.255
+ip.or('192.168.1.134', '0.0.0.255') // 192.168.1.255
+ip.isPrivate('127.0.0.1') // true
 ...</pre></li>
     </ul>
 
@@ -2129,22 +2122,22 @@ ip.isPrivate(&#x27;127.0.0.1&#x27;) // true
     <ul>
     <li>description and source-code<pre class="apidocCodePre">toLong = function (ip) {
   var ipl = 0;
-  ip.split(&#x27;.&#x27;).forEach(function(octet) {
-    ipl &#x3c;&#x3c;= 8;
+  ip.split('.').forEach(function(octet) {
+    ipl &lt;&lt;= 8;
     ipl += parseInt(octet);
   });
-  return(ipl &#x3e;&#x3e;&#x3e; 0);
+  return(ipl &gt;&gt;&gt; 0);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 // Same as previous.
 
 // range checking
-ip.cidrSubnet(&#x27;192.168.1.134/26&#x27;).contains(&#x27;192.168.1.190&#x27;) // true
+ip.cidrSubnet('192.168.1.134/26').contains('192.168.1.190') // true
 
 
 // ipv4 long conversion
-ip.<span class="apidocCodeKeywordSpan">toLong</span>(&#x27;127.0.0.1&#x27;); // 2130706433
-ip.fromLong(2130706433); // &#x27;127.0.0.1&#x27;
+ip.<span class="apidocCodeKeywordSpan">toLong</span>('127.0.0.1'); // 2130706433
+ip.fromLong(2130706433); // '127.0.0.1'
 ```
 
 ### License
@@ -2162,3 +2155,4 @@ This software is licensed under the MIT License.
     ]
 </div>
 </div>
+</body></html>
