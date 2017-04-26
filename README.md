@@ -1,6 +1,6 @@
 # npmdoc-ip
 
-#### api documentation for  [ip (v1.1.5)](https://github.com/indutny/node-ip)  [![npm package](https://img.shields.io/npm/v/npmdoc-ip.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-ip) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-ip.svg)](https://travis-ci.org/npmdoc/node-npmdoc-ip)
+#### basic api documentation for  [ip (v1.1.5)](https://github.com/indutny/node-ip)  [![npm package](https://img.shields.io/npm/v/npmdoc-ip.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-ip) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-ip.svg)](https://travis-ci.org/npmdoc/node-npmdoc-ip)
 
 #### [![](https://badge.fury.io/js/ip.svg)](https://www.npmjs.com/package/ip)
 
@@ -70,7 +70,8 @@
         "fix": "jscs lib/*.js test/*.js --fix",
         "test": "jscs lib/*.js test/*.js && jshint lib/*.js && mocha --reporter spec test/*-test.js"
     },
-    "version": "1.1.5"
+    "version": "1.1.5",
+    "bin": {}
 }
 ```
 
